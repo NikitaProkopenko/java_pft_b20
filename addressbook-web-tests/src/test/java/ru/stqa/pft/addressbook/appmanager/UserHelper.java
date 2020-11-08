@@ -21,4 +21,15 @@ public class UserHelper extends HelperBase {
         type(By.name("email"), userData.getEmail());
     }
 
+    public void updateUserForm() {
+        click(By.xpath("(//input[@name='update'])[2]"));
+    }
+
+    public void pressDeleteButtonFromForm() {
+        click(By.xpath("(//input[@name='update'])[3]"));
+    }
+
+    public void selectUser() {
+        click(By.name("selected[]"));
+    }
 }

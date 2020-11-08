@@ -24,4 +24,6 @@ public class NavigationHelper extends HelperBase {
     public void goToNewUserPage() {
         click(By.linkText("add new"));
     }
+
+    public void goToEditUserPage() {click(By.xpath("//img[@alt='Edit']"));}
 }

@@ -14,6 +14,7 @@ public class ApplicationManager {
     private NavigationHelper navigationHelper;
     private GroupHelper groupHelper;
     private SessionHelper sessionHelper;
+    private HomePageHelper homePageHelper;
 
     public void init() {
         wd = new ChromeDriver();
@@ -24,6 +25,7 @@ public class ApplicationManager {
         navigationHelper = new NavigationHelper(wd);
         sessionHelper = new SessionHelper(wd);
         userHelper = new UserHelper(wd);
+        homePageHelper = new HomePageHelper(wd);
 
         sessionHelper.login("admin", "secret");
     }
@@ -41,6 +43,10 @@ public class ApplicationManager {
         }
     }
 
+    public void acceptAlert() {
+        wd.switchTo().alert().accept();
+    }
+
     public GroupHelper getGroupHelper() {
         return groupHelper;
     }
@@ -55,5 +61,9 @@ public class ApplicationManager {
 
     public UserHelper getUserHelper() {
         return userHelper;
+    }
+
+    public HomePageHelper getHomePageHelper() {
+        return homePageHelper;
     }
 }
