@@ -13,13 +13,5 @@ public class NavigationHelper extends HelperBase {
         click(By.linkText("groups"));
     }
 
-    public void returnToHomePage() {
-        click(By.linkText("home page"));
-    }
-
-    public void goToNewUserPage() {
-        click(By.linkText("add new"));
-    }
-
     public void goToEditUserPage() {click(By.xpath("//img[@alt='Edit']"));}
 }

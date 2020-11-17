@@ -10,6 +10,10 @@ public class UserHelper extends HelperBase {
         super(wd);
     }
 
+    public void goToNewUserPage() {
+        click(By.linkText("add new"));
+    }
+
     public void submitUserForm() {
         click(By.xpath("(//input[@name='submit'])[2]"));
     }
@@ -32,4 +36,20 @@ public class UserHelper extends HelperBase {
     public void selectUser() {
         click(By.name("selected[]"));
     }
+
+    public void returnToHomePage() {
+        click(By.linkText("home page"));
+    }
+
+    public void createUser(UserData user) {
+        goToNewUserPage();
+        fillUserForm(user);
+        submitUserForm();
+        returnToHomePage();
+    }
+
+    public boolean isThereAUser() {
+        return isElementPresent(By.name("selected[]"));
+    }
+
 }
