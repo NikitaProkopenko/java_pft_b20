@@ -30,7 +30,7 @@ public class ApplicationManager {
             wd = new FirefoxDriver();
         }
 
-        wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        wd.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
         wd.get("http://localhost/addressbook/index.php");
 
         groupHelper = new GroupHelper(wd);
@@ -44,15 +44,6 @@ public class ApplicationManager {
 
     public void stop() {
         wd.quit();
-    }
-
-    public boolean isElementPresent(By by) {
-        try {
-            wd.findElement(by);
-            return true;
-        } catch (NoSuchElementException e) {
-            return false;
-        }
     }
 
     public void acceptAlert() {
