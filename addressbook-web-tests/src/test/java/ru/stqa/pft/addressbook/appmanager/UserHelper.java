@@ -2,7 +2,11 @@ package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import ru.stqa.pft.addressbook.model.UserData;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserHelper extends HelperBase {
 
@@ -52,4 +56,16 @@ public class UserHelper extends HelperBase {
         return isElementPresent(By.name("selected[]"));
     }
 
+    public List<UserData> getUserList() {
+        List<UserData> users = new ArrayList<>();
+        List<WebElement> elements = wd.findElements(By.xpath("//form/table/tbody/tr[@name='entry']"));
+        for (WebElement element : elements) {
+            String firstName = element.findElement(By.xpath("td[3]")).getText();
+            String lastName = element.findElement(By.xpath("td[2]")).getText();
+            int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("id"));
+            UserData user = new UserData(firstName, lastName, null, null, id);
+            users.add(user);
+        }
+        return users;
+    }
 }

@@ -8,7 +8,7 @@ public class UserDeletionTests extends TestBase {
     @Test
     public void testUserDeletionFromForm() throws Exception {
         if (!app.getUserHelper().isThereAUser()) {
-            app.getUserHelper().createUser(new UserData("firstName", "lastName", "8777-777-77-77", "test@test.com"));
+            app.getUserHelper().createUser(new UserData("firstName", "lastName"));
         }
         app.getNavigationHelper().goToEditUserPage();
         app.getUserHelper().pressDeleteButtonFromForm();
@@ -19,7 +19,7 @@ public class UserDeletionTests extends TestBase {
     @Test
     public void testUserDeletionFromHomePage() throws Exception {
         if (!app.getUserHelper().isThereAUser()) {
-            app.getUserHelper().createUser(new UserData("firstName", "lastName", "8777-777-77-77", "test@test.com"));
+            app.getUserHelper().createUser(new UserData("firstName", "lastName"));
         }
         app.getUserHelper().selectUser();
         app.getHomePageHelper().pressDeleteButtonFromHome();
