@@ -16,7 +16,7 @@ public class UserModificationTests extends TestBase {
         }
         List<UserData> before = app.getUserHelper().getUserList();
         app.getNavigationHelper().goToEditUserPage();
-        UserData user = new UserData("firstName1", "lastName1");
+        UserData user = new UserData("firstName1", "lastName1", null, null, before.get(0).getId());
         app.getUserHelper().fillUserForm(user);
         app.getUserHelper().updateUserForm();
         app.getUserHelper().returnToHomePage();

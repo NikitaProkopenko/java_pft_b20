@@ -16,6 +16,7 @@ public class UserDeletionTests extends TestBase {
         List<UserData> before = app.getUserHelper().getUserList();
         app.getNavigationHelper().goToEditUserPage();
         app.getUserHelper().pressDeleteButtonFromForm();
+        app.getNavigationHelper().goToHomePage();
         List<UserData> after = app.getUserHelper().getUserList();
 
         Assert.assertEquals(after.size(), before.size() - 1);
@@ -32,6 +33,7 @@ public class UserDeletionTests extends TestBase {
         app.getUserHelper().selectUser();
         app.getHomePageHelper().pressDeleteButtonFromHome();
         app.acceptAlert();
+        app.getNavigationHelper().goToHomePage();
         List<UserData> after = app.getUserHelper().getUserList();
 
         Assert.assertEquals(after.size(), before.size() - 1);
